@@ -40,13 +40,13 @@ done
 
 echo "Restarting dnsmasq service..."
 if hash systemctl 2>/dev/null; then
-  systemctl restart dnsmasq
+  systemctl restart NetworkManager
 elif hash service 2>/dev/null; then
-  service dnsmasq restart
+  service NetworkManager restart
 elif hash rc-service 2>/dev/null; then
-  rc-service dnsmasq restart
+  rc-service NetworkManager restart
 elif hash busybox 2>/dev/null && [[ -d "/etc/init.d" ]]; then
-  /etc/init.d/dnsmasq restart
+  /etc/init.d/NetworkManager restart
 else
   echo "Now please restart dnsmasq since I don't know how to do it."
 fi
